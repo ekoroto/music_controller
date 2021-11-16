@@ -33,9 +33,9 @@ export default class CreateRoomPage extends React.Component {
         votes_to_skip: this.state.votesToSkip,
       }),
     };
-    fetch("/api/create-room", requestOptions)
+    fetch("/api/create_room", requestOptions)
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => this.props.history.push("/room/" + data.code));
   };
 
   onGuestCanPauseChange = (e) => {
